@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap');
+
+.Game {
+	background-image: url("/Game(1).png");
+	width: 100%;
+	height: 350px;
+	background-position: -250px;
+	display: flex;
+	justify-content: center;
+	background-color: #51B3F6;
+
+	&__content{
+		margin-top: 470px;
+		position: relative;
+
+		.tramp {
+			position: absolute;
+			top: -300px;
+			z-index: 0;
+			right: 100px;
+		}
+
+		&__btns {
+			z-index: 10;
+			position: relative;
+			bottom: 120px;
+		}
+
+	}
+	
+  button {
+  	font-family: "Bevan" !important;
+		width: 208px;
+		height: 56px;
+		border-radius: 12px;
+		border: none;
+		font-size: 17px;
+  }
+	button:first-child {
+		background-color: #51B3F6;
+		color: white;
+		margin-bottom: 10px;
+		transition: 0.5s;
+
+	}
+	button:not(:first-child) {
+		background-color: rgba($color: #000000, $alpha: 0);
+		color: #FBB601;
+		border: 2px solid #FBB601;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: 0.5s;
+	}
+
+}

@@ -1,0 +1,630 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+#root {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  user-select: none
+}
+
+.game_container {
+  font-family: "Bevan" !important;
+  position: relative;
+  /* width: 300px;
+  height: 500px; */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('/Bulletins.png'); /* Путь к вашему изображению фона */
+  background-size: cover;
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  transition: background-position 0.1s; /* Плавный переход фона */
+}
+
+.rocket {
+  position: absolute;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background-image: url('/Tramp.png'); /* Путь к вашему изображению ракеты */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  transition: transform 0.1s ease-out; /* Плавный переход при наклоне ракеты */
+  transform: rotate(15deg);
+  z-index: 0;
+}
+
+.obstacle {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: transparent; /* Делаем фон прозрачным, чтобы показывать только изображение */
+}
+
+.obstacle.box {
+  background-image: url('/Box.png'); /* Путь к изображению первого препятствия */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.obstacle.mailbox {
+  background-image: url('/mailbox.png'); /* Путь к изображению второго препятствия */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.obstacle.puddle {
+  background-image: url('/Puddle.png'); /* Путь к изображению третьего препятствия */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.skyObstacle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: transparent; /* Делаем фон прозрачным, чтобы показывать только изображение */
+}
+
+.skyObstacle.box {
+  background-image: url('/IsolationMode.png'); /* Путь к изображению первого препятствия */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.skyObstacle.mailbox {
+  background-image: url('/Frame(10).png'); /* Путь к изображению второго препятствия */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: spin 6s linear infinite;
+}
+
+.skyObstacle.puddle {
+  background-image: url('/Frame20.png'); /* Путь к изображению третьего препятствия */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: spin 4s linear infinite;
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0px);
+  }
+  50% {
+    transform: rotate(360px);
+  }
+  100% {
+    transform: rotate(0px);
+  }
+}
+
+.score {
+
+  font-family: "Bevan";
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+
+  width: 100px;
+  height: 50px;
+  box-sizing: border-box;
+  /* position: absolute;
+  top: 10px; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  opacity: 0.8;
+  border-radius: 30px;
+
+  img {
+    width: 35px !important;
+    height: 35px !important;
+  }
+}
+
+.game_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game_over {
+  position: absolute;
+  color: black;
+  background-color: white;
+  opacity: 1;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  z-index: 100;
+
+  h1 {
+    color: #0A3161;
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    width: 80%;
+    background-color: #AAB2BD;
+  }
+
+  .text_next {
+    font-family: "Inter";
+    font-size: 15px;
+    font-weight: 400;
+    color: #AAB2BD;
+    margin-top: 7px;
+    margin-bottom: 5px;
+  }
+
+  .try_again {
+    border-radius: 12px;
+    background-color: #51B3F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+    height: 56px;
+    width: 182px;
+    letter-spacing: 1px;
+    border: none;
+    font-family: "Inter";
+
+    img {
+      margin-right: 10px;
+      width: 32px;
+      height: 25px;
+    }
+  }
+
+  
+  a {
+    font-family: "Inter";
+    text-decoration: none ;
+    color: #434A53 ;
+    font-size: 17px ;
+    font-weight: 600 ;
+    margin-top: 10px;
+  }
+
+}
+
+// .boost_timer {
+//   color: white;
+//   position: absolute;
+//   top: 10px;
+// }
+
+.heart_panel {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.hearts {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+
+  img {
+    width: 21px;
+    height: 17px;
+  }
+}
+
+.coin {
+  position: absolute;
+  width: 50px; /* Размер монеты */
+  height: 50px; /* Размер монеты */
+  background-image: url('/7.png');
+  background-color: transparent; /* Изменено на transparent */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: float 3s linear infinite;
+  transform: scale(1);
+}
+
+.isOp {
+  opacity: 0;
+  transition: opacity 0.5s ease ;
+}
+
+.flying {
+  transform: rotate(-15deg); /* Наклон ракеты при полете */
+}
+
+.sound_toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.3); /* Прозрачный фон */
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 7px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(5px); /* Размытие заднего фона */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.sound_toggle:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Изменение прозрачности при наведении */
+}
+
+.falling {
+  animation: spin 0.5s forwards, fall 1s forwards; /* Вращение и падение */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* Начальное положение */
+  }
+  100% {
+    transform: rotate(360deg); /* Полный оборот */
+  }
+}
+
+
+.flight_button {
+  z-index: 1;
+  user-select: none;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  // height: 40px;
+  height: 60%;
+  /* background-color: rgba(255, 255, 255, 0.3); 
+  backdrop-filter: blur(10px); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  */
+  border-radius: 15px;
+  border-radius: 12px;
+  -webkit-tap-highlight-color: transparent !important; /* Убирает синий эффект выделения на Android */
+  touch-action: none !important; /* Отключает стандартное поведение для касания */
+}
+
+ .top_panel {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+
+  .score {
+    position: static;
+    width: 133px;
+    height: 50px;
+    border-radius: 64px;
+  }
+  .sound_toggle {
+    position: static;
+    width: 20px;
+    height: 20px;
+    border-radius: 7px;
+  }
+}
+
+.heart_tr {
+  transition: 1s;
+}
+
+.arrow {
+  transform: rotate(180deg);
+}
+
+.left_arrow {
+  /* background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px); */
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+
+  width: 20px;
+  height: 20px;
+  border-radius: 7px;
+}
+
+// abc
+.transparent {
+  // opacity: 0.5; /* Прозрачность */
+  filter: brightness(0.1);
+  transition: filter 1s ease; /* Плавный переход */ /* Затемняет только фон */
+}
+
+
+
+.visible {
+  // opacity: 1; /* Полная непрозрачность */
+  filter: brightness(1);
+  // transition: filter 1s ease; /* Плавный переход */
+  transition: filter 1s ease; /* Плавный переход */
+}
+
+
+.heart_panel {
+  position: absolute;
+  top: 5px; /* Подстраивайте по необходимости */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.hearts {
+  display: flex;
+}
+
+.heart {
+  width: 40px; /* Размер сердечка */
+  height: auto;
+  margin: 0 5px;
+  transition: fill 0.3s;
+}
+
+.filled {
+  fill: #13639A; /* Цвет заполненного сердечка */
+}
+
+.timers {
+  display: flex;
+  align-items: center;
+  justify-content: end !important;
+
+  color: white;
+
+  width: 100%;
+  
+  align-items: center;
+  font-size: 20px;
+}
+
+.round_timer {
+  display: flex;
+  align-items: center;
+}
+
+// .round_timer {
+//   position: absolute;
+//   top: 150px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+
+//   color: white;
+//   font-size: 12px;
+
+//   width: 100%;
+//   display: flex;
+//   font-size: 12px;
+// }
+
+/* ... Твои существующие стили ... */
+
+/* Буст Фейерверк */
+.firework {
+  position: absolute;
+  width: 50px; /* Размер буста */
+  height: 50px; /* Размер буста */
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.firework img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Дополнительные стили для анимации буста (по желанию) */
+.firework {
+  animation: float 3s linear infinite;
+}
+
+.bottle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: float 3s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.canister {
+  position: absolute;
+  width: 50px; /* Размер буста */
+  height: 50px; /* Размер буста */
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: float 3s linear infinite;
+}
+
+.crow {
+  position: absolute;
+  width: 79px; /* Размер вороны */
+  height: 38px; /* Размер вороны */
+  background-color: transparent;
+  // background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: float 3s linear infinite; /* Анимация плавания */
+}
+
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+// .boost_timer {
+//   margin-top: 120px;
+//   font-size: 50px;
+// }
+
+.boost_timer {
+  width: 20px;
+  height: auto;
+}
+
+.heart {
+  position: absolute;
+  width: 50px; /* Размер сердца */
+  height: 50px; /* Размер сердца */
+  background-image: url('/Heart.svg'); /* Путь к изображению сердца */
+  background-color: transparent; /* Прозрачный фон */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: float 3s linear infinite; /* Анимация плавания */
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+/* ... Остальные стили ... */
+
+
+/* @media (max-width: 500px) {
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Убираем отступы и прокрутку
+  }
+
+  #root {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .game-container {
+    margin-left: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #87ceeb, #fff);
+  }
+
+} */
+/* ... Остальные стили ... */
+
+
+/* @media (max-width: 500px) {
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Убираем отступы и прокрутку
+  }
+
+  #root {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .game-container {
+    margin-left: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #87ceeb, #fff);
+  }
+
+} */

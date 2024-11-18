@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.ClaimRewards {
+	margin-top: 30px;
+	background-color: #51B3F6;
+	
+	&__title {
+		font-family: "Bevan" !important;
+		font-size: 18px;
+		font-weight: 400;
+		color: white;
+		letter-spacing: 2px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 20px;
+
+		span {
+			font-weight: 100;
+			font-size: 13px;
+		}
+	}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&__task {
+		background-color: white;
+		border-radius: 24px;
+		width: 95%;
+		height: 87px;
+		margin-top: 20px;
+	}
+
+	&__task {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__content {
+		font-family: "Inter";
+		padding: 15px;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		button {
+			font-family: "Inter";
+			background-color: #0A3161;
+			color: white;
+			width: 88px;
+			height: 36px;
+			border-radius: 64px;
+			font-size: 15px;
+			font-weight: 500;
+			border: none;
+			margin-left: 30px;
+			box-shadow: 0 0 2rem #0A3161;
+			transition: 300ms;
+		}
+		#comp {
+			background-color: #009748;
+			box-shadow: 0 0 2rem #009748 !important;
+			transition: 300ms;
+		}
+	}
+}
