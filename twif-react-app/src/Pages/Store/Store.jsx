@@ -1,7 +1,8 @@
 import {BottomMenu} from '../../BottomMenu/BM';
 import {Deposit} from './Deposit/Deposit';
-import {NFT} from './NFT/nft.JSX';
+import {NFT} from './NFT/nft';
 import styles from './Store.module.scss';
+
 
 import {Swiper, SwiperSlide} from 'swiper/react';
 
