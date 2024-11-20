@@ -51,7 +51,7 @@ const Game = () => {
 
   const addAttemptts = async () => {
     try {
-      const response = await fetch('https://playcloud.pro/boosts/add_attempt', {
+      const response = await fetch('http://188.245.187.190/api/boosts/add_attempt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -85,7 +85,7 @@ const Game = () => {
 
   const getAttemptts = async () => {
     try {
-      const response = await fetch('https://playcloud.pro/boosts/get_attempts', {
+      const response = await fetch('http://188.245.187.190/api/boosts/get_attempts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -158,7 +158,7 @@ const Game = () => {
 
   const sendSave = async () => {
     try {
-      const response = await fetch('https://playcloud.pro/boosts/save_game', {
+      const response = await fetch('http://188.245.187.190/api/boosts/save_game', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -1079,7 +1079,7 @@ const Game = () => {
   useEffect(() => {
     const getAttemptts = async () => {
       try {
-        const response = await fetch('https://playcloud.pro/boosts/get_attempts', {
+        const response = await fetch('http://188.245.187.190/api/boosts/get_attempts', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -1124,7 +1124,7 @@ const Game = () => {
   useEffect(() => {
     const getAttemptts = async () => {
       try {
-        const response = await fetch('https://playcloud.pro/boosts/get_attempts', {
+        const response = await fetch('http://188.245.187.190/api/boosts/get_attempts', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
