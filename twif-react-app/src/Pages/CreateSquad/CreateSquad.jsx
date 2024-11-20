@@ -112,6 +112,7 @@ import {useGlobalStore} from '../../useGlobalStore';
 import styles from './CreateSquad.module.scss';
 import {FileUploader} from './FileUploader';
 import PartyMemberSelect from './Select';
+import {API_URL} from '../../config.js';
 
 
 export function ControlLabel({ checked, onChange }) {
@@ -215,7 +216,7 @@ export function CreateSquadComp() {
   const [nftCollections, setnftCollections] = useState(null);
 	
 	useEffect(() => {
-		fetch(' http://188.245.187.190/api/nft/collection/colors')
+		fetch(` ${API_URL}/nft/collection/colors`)
 			.then(response => response.json())
 			.then(data => {
 				console.log(data.colors)
@@ -260,7 +261,7 @@ export function CreateSquadComp() {
     
       const params = new URLSearchParams(data).toString();
 
-      fetch(' http://188.245.187.190/api/party/squad/create?' + params, {
+      fetch(` ${API_URL}/party/squad/create?` + params, {
         method: 'POST',
         headers: {
           'accept': 'application/json'

@@ -1,17 +1,18 @@
-import { BottomMenu } from '../../BottomMenu/BM'
-import { Deposit } from './Deposit/Deposit'
-import { NFT } from './NFT/nft.JSX'
-import styles from "./Store.module.scss"
+import {BottomMenu} from '../../BottomMenu/BM';
+import {Deposit} from './Deposit/Deposit';
+import {NFT} from './NFT/nft.JSX';
+import styles from './Store.module.scss';
 
-import { Swiper, SwiperSlide } from 'swiper/react'
+import {Swiper, SwiperSlide} from 'swiper/react';
 
-import { useEffect, useState } from 'react'
-import 'swiper/css'
+import {useEffect, useState} from 'react';
+import 'swiper/css';
 
-import Swal from 'sweetalert2'
-import 'sweetalert2/src/sweetalert2.scss'
+import Swal from 'sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
 
-import { TonConnectUIProvider, useTonConnectUI } from '@tonconnect/ui-react'
+import {TonConnectUIProvider, useTonConnectUI} from '@tonconnect/ui-react';
+import {API_URL} from '../../config.js';
 
 export function Settings({ userFriendlyAddress }) {
 	const [TonConnectUI, setOptions] = useTonConnectUI()
@@ -133,7 +134,7 @@ export function Store() {
   });
 
 	useEffect(() => {
-		fetch('https://playcloud.pro/users/me', {
+		fetch(`${API_URL}/users/me`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ initData: window.Telegram.WebApp.initData })
@@ -147,7 +148,7 @@ export function Store() {
       });
 
 
-			fetch('https://playcloud.pro/boosts/user_daily_boost', {
+			fetch(`${API_URL}/boosts/user_daily_boost`, {
 				method: 'POST',
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify({ initData: window.Telegram.WebApp.initData })

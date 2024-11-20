@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {useGlobalStore} from '../../useGlobalStore';
 import styles from '../CreateParty/CreateParty.module.scss';
 import {FileUploader} from './FileUploader';
+import {API_URL} from '../../config.js';
 
 
 export function ControlLabel({ checked, onChange }) {
@@ -118,10 +119,12 @@ export function CreatePartyComp({ party_id }) {
     console.log(event.target.value)
   }
 
+  
   const [nftCollections, setnftCollections] = useState(null);
-	
+
+
 	useEffect(() => {
-		fetch(' http://188.245.187.190/api/nft/collection/colors')
+		fetch(` ${API_URL}/nft/collection/colors`)
 			.then(response => response.json())
 			.then(data => {
 				console.log(data.colors)

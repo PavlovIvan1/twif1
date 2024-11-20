@@ -93,6 +93,7 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import styles from './CreateParty.module.scss';
 import {FileUploader} from './FileUploader';
+import {API_URL} from '../../config.js';
 
 
 export function ControlLabel({ checked, onChange }) {
@@ -196,7 +197,7 @@ export function CreatePartyComp() {
   const [nftCollections, setnftCollections] = useState(null);
 	
 	useEffect(() => {
-		fetch(' http://188.245.187.190/api/nft/collection/colors')
+		fetch(` ${API_URL}/nft/collection/colors`)
 			.then(response => response.json())
 			.then(data => {
 				console.log(data.colors)
@@ -235,7 +236,7 @@ export function CreatePartyComp() {
     
       const params = new URLSearchParams(data).toString();
 
-      fetch(' http://188.245.187.190/api/party/create?' + params, {
+      fetch(` ${API_URL}/party/create?${params}`, {
         method: 'POST',
         headers: {
           'accept': 'application/json'

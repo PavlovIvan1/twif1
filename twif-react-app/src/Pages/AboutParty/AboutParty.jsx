@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 import {useGlobalStore} from '../../useGlobalStore';
 import styles from './AboutParty.module.scss';
+import {API_URL} from '../../config.js';
 
 export function LeaderBoard__component({place, photo, name, tag, colorClass, partyId}) {
 
@@ -53,7 +54,7 @@ export function AboutPartyComp({ partyId, description }) {
 
 
 	useEffect(() => {
-		fetch(`	http://188.245.187.190/api/party/get_party_members?party_id=${partyId}`)
+		fetch(`	${API_URL}/party/get_party_members?party_id=${partyId}`)
 		.then(response => response.json())
 		.then(data => {
 			console.log("Data:", data);
@@ -63,7 +64,7 @@ export function AboutPartyComp({ partyId, description }) {
 			console.error("Err", err)
 		})
 
-		fetch('http://188.245.187.190/api/boosts/deadline')
+		fetch(`${API_URL}/boosts/deadline`)
 		.then(response => response.json())
 		.then(data => {
 			setDeadline(data.deadline)
@@ -83,7 +84,7 @@ export function AboutPartyComp({ partyId, description }) {
 		// }
 
 		const handleVote = () => {
-			fetch('http://188.245.187.190/api/party/vote', {
+			fetch(`${API_URL}/party/vote`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ 
@@ -240,7 +241,7 @@ export function AboutParty() {
 	const [partyD, setPartyD] = useState('')
 
 	useEffect(() => {
-		fetch(`http://188.245.187.190/api/party/get?party_id=${partyId}`)
+		fetch(`${API_URL}/party/get?party_id=${partyId}`)
 		.then(response => response.json())
 		.then(data => {
 			console.log("Datades", data);
@@ -254,7 +255,7 @@ export function AboutParty() {
 	}, [])
 
 	const partyJoin = () => {
-		fetch('http://188.245.187.190/api/party/join', {
+		fetch(`${API_URL}/party/join`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ 
@@ -282,7 +283,7 @@ export function AboutParty() {
   useEffect(() => {
     const fetchUserIds = () => {
       squadFounders.forEach((user) => {
-        fetch(`http://188.245.187.190/api/users/search?query=${user.name}`)
+        fetch(`${API_URL}/users/search?query=${user.name}`)
           .then(response => response.json())
           .then(data => {
             if (data.users && data.users.length > 0) {
@@ -301,7 +302,7 @@ export function AboutParty() {
   }, [squadFounders]);
 
 	const partyJoinAsFounder = () => {
-		fetch('http://188.245.187.190/api/party/join_as_founder', {
+		fetch(`${API_URL}/party/join_as_founder`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ 

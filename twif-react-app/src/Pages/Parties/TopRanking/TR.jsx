@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import {useGlobalStore} from '../../../useGlobalStore';
 import {Loader} from './Load';
 import styles from './TR.module.scss';
+import {API_URL} from '../../../config.js';
 
 
 // export function TopRated__component({place, name, photo, people, stat}) {
@@ -126,7 +127,7 @@ export function TopRated() {
 
 
   useEffect(() => {
-    fetch(' http://188.245.187.190/api/party/leaderboard?limit=5')
+    fetch(` ${API_URL}/party/leaderboard?limit=5`)
       .then(response => response.json())
       .then(data => {
         console.log("lb data", data);

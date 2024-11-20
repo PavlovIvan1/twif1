@@ -1,6 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import {Loader} from '../Loading';
 import styles from './RS.module.scss';
+import {API_URL} from '../config.js';
 
 export function ReferalSystem() {
 
@@ -33,7 +34,7 @@ export function ReferalSystem() {
 
 	
 	useEffect(() => {
-		fetch('http://188.245.187.190/api/users/ref', {
+		fetch(`${API_URL}/users/ref`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ initData: window.Telegram.WebApp.initData })

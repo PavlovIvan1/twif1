@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 import styles from './LB.module.scss';
+import {API_URL} from '../config.js';
 
 export function LeaderBoard__component({place, photo, name}) {
 	return (
@@ -37,7 +38,7 @@ export function LeaderBoard() {
 	const [loaading, setLoading] = useState(true)
 	
 	useEffect(() => {
-		fetch('http://188.245.187.190/api/users/leaderboard?limit=5&offset=0')
+		fetch(`${API_URL}/users/leaderboard?limit=5&offset=0`)
 			.then(response => response.json())
 			.then(data => {
 				console.log(data.leaders)

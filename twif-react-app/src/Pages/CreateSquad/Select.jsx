@@ -173,6 +173,7 @@ import {
 } from '@mui/material';
 import React, {useEffect, useState} from 'react';
 import {useGlobalStore} from '../../useGlobalStore';
+import {API_URL} from '../../config.js';
 
 
 // const options = [
@@ -383,7 +384,7 @@ export default function PartyMemberSelect() {
   };
 
   useEffect(() => {
-		fetch(' http://188.245.187.190/api/users/leaderboard?limit=10&offset=0')
+		fetch(`${API_URL}/users/leaderboard?limit=10&offset=0`)
 			.then(response => response.json())
 			.then(data => {
 				const transformedOptions = data.leaders.map(user => ({ fullname: user.fullname }));
@@ -501,7 +502,7 @@ export default function PartyMemberSelect() {
   const namesToBackend = async () => {
     try {
       const promises = squadFounders.map((founder) =>
-        fetch(` http://188.245.187.190/api/users/search?query=${founder.fullname}`)
+        fetch(` ${API_URL}/users/search?query=${founder.fullname}`)
           .then((response) => response.json())
           .then((data) => {
             if (data.users && data.users.length > 0) {

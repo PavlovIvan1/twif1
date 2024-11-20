@@ -7,6 +7,7 @@ import {
 import React, {useEffect, useState} from 'react';
 import {BottomMenu} from '../../BottomMenu/BM';
 import styles from './Others.module.scss';
+import {API_URL} from '../../config.js';
 
 // export function Settings({ userFriendlyAddress }) {
 // 	const [TonConnectUI, setOptions] = useTonConnectUI()
@@ -71,7 +72,7 @@ export function Address() {
 
 	useEffect(() => {
 		if (userFriendlyAddress) {
-			fetch(' http://188.245.187.190/api/users/connect-wallet', {
+			fetch(` ${API_URL}/users/connect-wallet`, {
 				method: 'POST',
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify({

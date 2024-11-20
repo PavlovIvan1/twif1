@@ -60,6 +60,7 @@
 
 import React, {useEffect, useState} from 'react';
 import styles from './CR.module.scss';
+import {API_URL} from '../config.js';
 
 export function ClaimRewards() {
     const [tasks, setTasks] = useState([]);
@@ -77,7 +78,7 @@ export function ClaimRewards() {
     useEffect(() => {
         const fetchTasks = async () => {
             try {
-                const response = await fetch('http://188.245.187.190/api/tasks/all');
+                const response = await fetch(`${API_URL}/tasks/all`);
                 const data = await response.json();
                 setTasks(data.tasks || []); // Заполняем массив задач
             } catch (error) {
@@ -93,7 +94,7 @@ export function ClaimRewards() {
             ...prevCompletedTasks,
             [taskId]: true, // Отмечаем задачу как завершённую
         }));
-        fetch('http://188.245.187.190/api/tasks/complete', {
+        fetch(`${API_URL}/tasks/complete`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ 

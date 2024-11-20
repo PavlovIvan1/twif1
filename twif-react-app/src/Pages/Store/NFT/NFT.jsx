@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import styles from "./NFT.module.scss"
+import {useEffect, useState} from 'react';
+import styles from './NFT.module.scss';
 
-import 'swiper/css'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {API_URL} from '../../../config.js';
 
 export function Carousel() {
 
@@ -13,7 +14,7 @@ export function Carousel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://playcloud.pro/nft/collection');
+        const response = await fetch(`${API_URL}/nft/collection`);
         
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);

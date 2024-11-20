@@ -1,6 +1,7 @@
 import {useNavigate} from 'react-router-dom';
 import {useGlobalStore} from '../useGlobalStore';
 import styles from './GB.module.scss';
+import {API_URL} from '../config.js';
 
 function TrampToTheMoon() {
 	document.getElementById("#tramp").style.left = 500
@@ -24,7 +25,7 @@ export function GameBlock() {
 	const dailyNFTBoost = useGlobalStore((state) => state.dailyNftBoost);
 
 	const handleBoostClick = () => {
-		fetch('http://188.245.187.190/api/boosts/user_daily_boost', {
+		fetch(`${API_URL}/boosts/user_daily_boost`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
@@ -42,7 +43,7 @@ export function GameBlock() {
 
 		// ----
 
-		fetch('https://playcloud.pro/boosts/get_nft_boosts', {
+		fetch(`${API_URL}/boosts/get_nft_boosts`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
