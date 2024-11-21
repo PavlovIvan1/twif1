@@ -1,7 +1,7 @@
-import {useEffect, useState} from 'react';
-import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
-import styles from './LB.module.scss';
-import {API_URL} from '../config.js';
+import { useEffect, useState } from 'react'
+import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
+import { API_URL } from '../config.js'
+import styles from './LB.module.scss'
 
 export function LeaderBoard__component({place, photo, name}) {
 	return (
@@ -79,7 +79,7 @@ export function LeaderBoard() {
         	<div key={leader.id}>
         	  <LeaderBoard__component
 							place={index += 1}
-        	    photo={`https://playcloud.pro/media/avatars/${leader.avatar}`} 
+        	    photo={`${API_URL}/media/avatars/${leader.avatar}`} 
         	    name={leader.fullname} 
         	  />
         	  <hr />

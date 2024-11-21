@@ -1,19 +1,25 @@
-import {BottomMenu} from '../../BottomMenu/BM';
-import {Deposit} from './Deposit/Deposit';
-import {NFT} from './NFT/nft';
-import styles from './Store.module.scss';
+import { BottomMenu } from '../../BottomMenu/BM'
+import { Deposit } from './Deposit/Deposit'
+import { NFT } from './NFT/nft'
+import styles from './Store.module.scss'
 
 
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-import {useEffect, useState} from 'react';
-import 'swiper/css';
+import { useEffect, useState } from 'react'
+import 'swiper/css'
 
-import Swal from 'sweetalert2';
-import 'sweetalert2/src/sweetalert2.scss';
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 
-import {TonConnectUIProvider, useTonConnectUI} from '@tonconnect/ui-react';
-import {API_URL} from '../../config.js';
+import { TonConnectUIProvider, useTonConnectUI } from '@tonconnect/ui-react'
+import { API_URL } from '../../config.js'
+
+
+
+
+const URL = `${API_URL}/static/tonconnect-manifest.json`
+
 
 export function Settings({ userFriendlyAddress }) {
 	const [TonConnectUI, setOptions] = useTonConnectUI()
@@ -80,7 +86,7 @@ export function Balance({balance}) {
 					<img src="/TGStars.svg" alt="" />
 					<h2>{balance}</h2>
 				</div>
-				<TonConnectUIProvider manifestUrl='https://playcloud.pro/static/tonconnect-manifest.json'>
+				<TonConnectUIProvider manifestUrl={URL}>
 				<Settings userFriendlyAddress={'UQCqvbAOk3AH7LemYeOIWh0va8gZH-63dY8iM538MUYhf_oa'} />
 				</TonConnectUIProvider>
 			</div>

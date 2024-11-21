@@ -1,8 +1,8 @@
-import {useEffect, useState} from 'react';
-import Swal from 'sweetalert2';
-import 'sweetalert2/src/sweetalert2.scss';
-import styles from './Deposit.module.scss';
-import {API_URL} from '../../../config.js';
+import { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
+import { API_URL } from '../../../config.js'
+import styles from './Deposit.module.scss'
 
 export function Loader() {
 	return (
@@ -84,7 +84,7 @@ export function Deposit({canBuyDailyBoost, setCanBuyDailyBoost }) {
 
 	const handlePay = () => {
 		if (canBuyDailyBoost) {
-		fetch('https://playcloud.pro/boosts/set_user_daily_boost', {
+		fetch(`${API_URL}/boosts/set_user_daily_boost`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({

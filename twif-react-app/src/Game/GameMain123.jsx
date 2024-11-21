@@ -157,7 +157,7 @@ const Game = () => {
 
   const sendSave = async () => {
     try {
-      const response = await fetch('https://playcloud.pro/boosts/save_game', {
+      const response = await fetch(`/boosts/save_game`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

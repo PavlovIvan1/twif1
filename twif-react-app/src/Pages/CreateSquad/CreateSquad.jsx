@@ -100,19 +100,19 @@
 // }
 
 
-import {FormControlLabel, Switch} from '@mui/material';
-import Slider from '@mui/material/Slider';
-import React, {useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {toast, ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Swal from 'sweetalert2';
-import 'sweetalert2/src/sweetalert2.scss';
-import {useGlobalStore} from '../../useGlobalStore';
-import styles from './CreateSquad.module.scss';
-import {FileUploader} from './FileUploader';
-import PartyMemberSelect from './Select';
-import {API_URL} from '../../config.js';
+import { FormControlLabel, Switch } from '@mui/material'
+import Slider from '@mui/material/Slider'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
+import { API_URL } from '../../config.js'
+import { useGlobalStore } from '../../useGlobalStore'
+import styles from './CreateSquad.module.scss'
+import { FileUploader } from './FileUploader'
+import PartyMemberSelect from './Select'
 
 
 export function ControlLabel({ checked, onChange }) {
@@ -294,45 +294,6 @@ export function CreateSquadComp() {
             title: "Somph went wrong!"
           });
         })
-
-        
-      // fetch(`https://playcloud.pro/party/create?initData=${window.Telegram.WebApp.initData}&title=${title}&quantity=${quantity}&founder_share=0.3&members_share=0.4&project_share=0.2&voters_share=0.1&chat_url=chaturl&nft_requirement=${selectNftValue}&twif_requirement=0`, {
-      //   method: 'POST',
-      //   headers: {
-      //     'accept': 'application/json'
-      //   },
-      //   body: formData
-      // })
-      //   .then(response => response.json())
-      //   .then(data => {
-      //     console.log("Okay!", data)
-      //     alert("Партия успешно создана")
-      //   })
-      //   .catch((error) => {
-      //     console.error("Err:", error)
-      //     alert("Ошибка")
-      //   })
-
-      // fetch('https://playcloud.pro/party/create', {
-      //   method: 'POST',
-      //   body: formData 
-      // })
-      // .then(response => {
-      //   if (response.ok) {
-      //     console.log('ok');
-      //   } else {
-      //     response.json()
-      //       .then(errorData => {
-      //         console.error("Error", errorData);
-      //       })
-      //       .catch(error => {
-      //         console.error("Error parsing JSON", error);
-      //       });
-      //   }
-      // })
-      // .catch(error => {
-      //   console.error("Network Error", error);
-      // });
     }
 
 

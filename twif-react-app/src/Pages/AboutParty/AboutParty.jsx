@@ -1,11 +1,11 @@
-import {useEffect, useState} from 'react';
-import {useLocation, useNavigate} from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
-import Swal from 'sweetalert2';
-import 'sweetalert2/src/sweetalert2.scss';
-import {useGlobalStore} from '../../useGlobalStore';
-import styles from './AboutParty.module.scss';
-import {API_URL} from '../../config.js';
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css'
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
+import { API_URL } from '../../config.js'
+import { useGlobalStore } from '../../useGlobalStore'
+import styles from './AboutParty.module.scss'
 
 export function LeaderBoard__component({place, photo, name, tag, colorClass, partyId}) {
 
@@ -29,7 +29,7 @@ export function LeaderBoard__component({place, photo, name, tag, colorClass, par
 		<>
 			<div className={styles.LeaderBoard__component}>
 				<li>{place}</li>
-				<img src={`https://playcloud.pro/${photo}`} alt="" className={styles.avatar}/>
+				<img src={`${API_URL}/${photo}`} alt="" className={styles.avatar}/>
 
 				<div className={styles.info}>
 					<p>{name}</p>

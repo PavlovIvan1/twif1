@@ -25,46 +25,4 @@ export const useGlobalStore = create((set) => ({
     setSquadFoundersIds: (newSquadFoundersIds) => set({ squadFoundersIds: newSquadFoundersIds }),
 
 
-
-    // fetchIdsForSquadFounders: async () => {
-    //     const { squadFounders } = get();
-    //     const ids = [];
-    
-    //     for (const founder of squadFounders) {
-    //         try {
-    //             const response = await fetch(`https://playcloud.pro/users/search?query=${founder.name}`);
-    //             const data = await response.json();
-    
-    //             if (data.users && data.users.length > 0) {
-    //                 ids.push(data.users[0].id);
-    //             }
-    //         } catch (error) {
-    //             console.error('Ошибка при запросе:', error);
-    //         }
-    //     }
-    
-    //     console.log('Полученные ID:', ids);
-    // },
-
-    // fetchIdsForSquadFounders: async () => {
-    //     const { squadFounders } = get();
-    //     const ids = [];
-    
-    //     for (const founder of squadFounders) {
-    //         try {
-    //             const response = await fetch(`https://playcloud.pro/users/search?query=${founder.name}`);
-    //             const data = await response.json();
-    //             console.log("Search data", data)
-    //             if (data.users && data.users.length > 0) {
-    //                 const founderIds = data.users.map(user => user.id);11111
-    //                 ids.push(...founderIds);
-    //             }
-    //         } catch (error) {
-    //             console.error('Ошибка при запросе:', error);
-    //         }
-    //     }
-    
-    //     console.log('Полученные ID:', ids);
-    // },
-
 }));

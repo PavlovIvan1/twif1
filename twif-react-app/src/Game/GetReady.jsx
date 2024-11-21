@@ -1,13 +1,13 @@
-import {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import styles from './Game.module.scss';
-
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { API_URL } from '../config'
+import styles from './Game.module.scss'
 
 export function GetReady() {
 
 	const getAttemptts = async () => {
     try {
-      const response = await fetch('https://playcloud.pro/boosts/get_attempts', {
+      const response = await fetch(`${API_URL}/boosts/get_attempts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
