@@ -123,8 +123,7 @@ const Game = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [speed, setSpeed] = useState(6);
   const [isFalling, setIsFalling] = useState(false); // Для анимации падения
-  // const [heart, setHeart] = useState(getAttemptts());
-  const [heart, setHeart] = useState(100);
+  const [heart, setHeart] = useState(getAttemptts());
   
   const [isFireworkActive, setFireworkActive] = useState(false); // Состояние активного буста
   // const [fireworkTimer, setFireworkTimer] = useState(null); // Таймер для буста
@@ -1094,7 +1093,7 @@ const Game = () => {
     
         const data = await response.json();
         console.log("DATA ATTEMPTS:", data);
-        // setHeart(data.attempts)
+        setHeart(data.attempts)
         // вот тут сердца
       } catch (err) {
         console.error("Err attempts", err);
@@ -1124,7 +1123,7 @@ const Game = () => {
     
         const data = await response.json();
         console.log("DATA ATTEMPTS:", data);
-        // setHeart(data.attempts)
+        setHeart(data.attempts)
         // Вот тут сердца
       } catch (err) {
         console.error("Err attempts", err);
