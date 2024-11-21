@@ -1100,22 +1100,7 @@ const Game = () => {
         console.error("Err attempts", err);
       }
     };
-    // const getAttemptts = async () => {
-    //  await fetch('https://playcloud.pro/boosts/get_attempts', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({
-    //     initData: window.Telegram.WebApp.initData
-    //   })
-    //  })
-    //  .then(response => response.json())
-    //  .then(data => {
-    //   console.log(data)
-    //  })
-    //  .catch(err => {
-    //   console.error("Err attempts", err)
-    //  })
-    // };
+    
 
     const intervalAttempts = setInterval(getAttemptts, 2000);
 
