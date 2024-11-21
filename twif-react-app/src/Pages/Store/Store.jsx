@@ -1,6 +1,6 @@
 import { BottomMenu } from '../../BottomMenu/BM'
 import { Deposit } from './Deposit/Deposit'
-import { NFT } from './NFT/nft'
+import { NFT } from './NFT/NFT'
 import styles from './Store.module.scss'
 
 
