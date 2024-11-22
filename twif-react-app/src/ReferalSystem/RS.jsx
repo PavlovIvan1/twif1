@@ -49,7 +49,7 @@ export function ReferalSystem() {
 			.finally(() => {
 				setTimeout(() => {
 					setLoading(false);
-				}, 2500); // Задержка в 2 секунды
+				}, 1000); // Задержка в 2 секунды
 			}) 
 	}, [])
 
