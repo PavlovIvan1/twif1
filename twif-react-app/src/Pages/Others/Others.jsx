@@ -130,7 +130,7 @@ export function MyInfo() {
 	const [userData, setUserData] = useState(null);
 	
 	useEffect(() => {
-		fetch(' http://188.245.187.190/api/users/me', {
+		fetch(`${API_URL}/users/me`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ initData: window.Telegram.WebApp.initData })
@@ -158,7 +158,7 @@ export function MyInfo() {
 			<div className={styles.MyInfo__Comp}>
 				<div className={styles.MyInfo__UserInfo}>
 					<div className={styles.MyInfo__UserInfo__Name}>
-						<img src={` http://188.245.187.190/api/media/avatars/${userData.avatar}`} alt="" className={styles.avatar} />
+						<img src={` ${API_URL}/media/avatars/${userData.avatar}`} alt="" className={styles.avatar} />
 						<div>
 
 							<h4>{userData.fullname}</h4>
