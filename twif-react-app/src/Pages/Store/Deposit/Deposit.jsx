@@ -68,7 +68,7 @@ export function Deposit({canBuyDailyBoost, setCanBuyDailyBoost }) {
 		.finally(() => {
 			setTimeout(() => {
 				setLoading(false);
-			}, 2500);
+			}, 1000);
 		}) 
 	}, [])
 
