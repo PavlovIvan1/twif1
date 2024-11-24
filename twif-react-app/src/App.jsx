@@ -10,6 +10,12 @@ import { ReferalSystem } from './ReferalSystem/RS'
 
 
 export function App() {
+
+  useEffect(() => {
+    if (window.Telegram?.WebApp) {
+      window.Telegram.WebApp.expand();
+    }
+  }, []);
   
   console.log(window.Telegram.WebApp.initData)
 
