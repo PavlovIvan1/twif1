@@ -13,7 +13,15 @@ export function App() {
 
   useEffect(() => {
     if (window.Telegram?.WebApp) {
-      window.Telegram.WebApp.expand();
+      window.Telegram.WebApp.ready();
+
+      window.Telegram.WebApp.setHeaderColor("bg_color");
+
+      if (window.Telegram.WebApp.requestFullscreen) {
+        window.Telegram.WebApp.requestFullscreen();
+      } else {
+        console.warn("Fullscreen API недоступен");
+      }
     }
   }, []);
   
