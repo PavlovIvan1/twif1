@@ -5,7 +5,7 @@ import { BottomMenu } from './BottomMenu/BM'
 import { ClaimRewards } from './ClaimReward/CR'
 import { GameBlock } from './GameBlock/GB'
 import { LeaderBoard } from './LeaderBoard/LB'
-
+import { useEffect } from 'react'
 import { ReferalSystem } from './ReferalSystem/RS'
 
 
