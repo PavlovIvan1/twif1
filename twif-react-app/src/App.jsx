@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { AirDrop } from './Airdrop/AD'
 import "./App.scss"
 import { BottomMenu } from './BottomMenu/BM'
@@ -5,11 +6,12 @@ import { ClaimRewards } from './ClaimReward/CR'
 import { GameBlock } from './GameBlock/GB'
 import { LeaderBoard } from './LeaderBoard/LB'
 
-
 import { ReferalSystem } from './ReferalSystem/RS'
 
 
 export function App() {
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (window.Telegram?.WebApp) {
@@ -25,6 +27,12 @@ export function App() {
     }
   }, []);
   
+  useEffect(() => {
+    if (!isMobile) {
+      navigate('/mobapp')
+    }
+  }, [])
+
   console.log(window.Telegram.WebApp.initData)
 
   return (
