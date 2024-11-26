@@ -27,11 +27,11 @@ export function App() {
     }
   }, []);
   
-  useEffect(() => {
-    if (!isMobile) {
-      navigate('/mobapp')
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (!isMobile) {
+  //     navigate('/mobapp')
+  //   }
+  // }, [])
 
   console.log(window.Telegram.WebApp.initData)
 
