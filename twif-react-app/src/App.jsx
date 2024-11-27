@@ -29,9 +29,14 @@ export function App() {
   // }, []);
   
   useEffect(() => {
-    if (!isMobile) {
+    // if (!isMobile) {
+    //   navigate('/mobapp')
+    // }
+
+    if (window.Telegram.WebApp.platform == "tdesktop") {
       navigate('/mobapp')
     }
+    
   }, [])
 
   console.log(window.Telegram.WebApp.initData)
