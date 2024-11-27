@@ -7,31 +7,32 @@ import { GameBlock } from './GameBlock/GB'
 import { LeaderBoard } from './LeaderBoard/LB'
 import { useEffect } from 'react'
 import { ReferalSystem } from './ReferalSystem/RS'
+import { isMobile } from 'react-device-detect';
 
 
 export function App() {
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if (window.Telegram?.WebApp) {
-      window.Telegram.WebApp.ready();
-
-      window.Telegram.WebApp.setHeaderColor("bg_color");
-
-      if (window.Telegram.WebApp.requestFullscreen) {
-        window.Telegram.WebApp.requestFullscreen();
-      } else {
-        console.warn("Fullscreen API недоступен");
-      }
-    }
-  }, []);
-  
   // useEffect(() => {
-  //   if (!isMobile) {
-  //     navigate('/mobapp')
+  //   if (window.Telegram?.WebApp) {
+  //     window.Telegram.WebApp.ready();
+
+  //     window.Telegram.WebApp.setHeaderColor("bg_color");
+
+  //     if (window.Telegram.WebApp.requestFullscreen) {
+  //       window.Telegram.WebApp.requestFullscreen();
+  //     } else {
+  //       console.warn("Fullscreen API недоступен");
+  //     }
   //   }
-  // }, [])
+  // }, []);
+  
+  useEffect(() => {
+    if (!isMobile) {
+      navigate('/mobapp')
+    }
+  }, [])
 
   console.log(window.Telegram.WebApp.initData)
 
