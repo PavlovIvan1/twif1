@@ -130,3 +130,23 @@ button:hover {
   }
 }
 
+.mobilePlay {
+    background-color: #51B3F6;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        font-family: "Bevan";
+        color: white;
+        letter-spacing: 3px;
+    }
+
+    h3 {
+         font-weight: 600;
+         color: white;
+         font-family: "Inter";
+    }
+}
