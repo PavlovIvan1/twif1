@@ -14,25 +14,21 @@ export function App() {
 
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   if (window.Telegram?.WebApp) {
-  //     window.Telegram.WebApp.ready();
+  useEffect(() => {
+    if (window.Telegram?.WebApp) {
+      window.Telegram.WebApp.ready();
 
-  //     window.Telegram.WebApp.setHeaderColor("bg_color");
+      window.Telegram.WebApp.setHeaderColor("bg_color");
 
-  //     if (window.Telegram.WebApp.requestFullscreen) {
-  //       window.Telegram.WebApp.requestFullscreen();
-  //     } else {
-  //       console.warn("Fullscreen API недоступен");
-  //     }
-  //   }
-  // }, []);
+      if (window.Telegram.WebApp.requestFullscreen) {
+        window.Telegram.WebApp.requestFullscreen();
+      } else {
+        console.warn("Fullscreen API недоступен");
+      }
+    }
+  }, []);
   
   useEffect(() => {
-    // if (!isMobile) {
-    //   navigate('/mobapp')
-    // }
-
     if (window.Telegram.WebApp.platform == "tdesktop") {
       navigate('/mobapp')
     }
