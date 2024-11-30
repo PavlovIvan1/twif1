@@ -114,11 +114,14 @@ export function MyInfo() {
 }
 
 export function Others() {
+
+	const manifestUrl = `${API_URL}/static-tonconnect-manifest.json`
+	
 	return (
 		<>
 			<div className={styles.Others}>
 
-				<TonConnectUIProvider manifestUrl='https:// http://188.245.187.190/api/static/tonconnect-manifest.json'>
+				<TonConnectUIProvider manifestUrl={manifestUrl}>
 					<MyInfo />
 				</TonConnectUIProvider>
 				
