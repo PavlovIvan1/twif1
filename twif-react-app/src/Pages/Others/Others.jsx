@@ -9,62 +9,6 @@ import {BottomMenu} from '../../BottomMenu/BM';
 import styles from './Others.module.scss';
 import {API_URL} from '../../config.js';
 
-// export function Settings({ userFriendlyAddress }) {
-// 	const [TonConnectUI, setOptions] = useTonConnectUI()
-
-// 	const transaction =  {
-// 		validUntil: Date.now() + 5 * 60 * 1000,
-// 		messages: [
-// 			{
-// 				address: userFriendlyAddress,
-// 				amount: '10000000',
-// 			},
-// 		],
-// 	};
-
-// 	async function sendTransaction() {
-// 		if (!TonConnectUI.wallet) {
-// 			alert("Pls connect ur wallet")
-// 			return
-// 		}
-
-// 		try {
-// 			const res = await TonConnectUI.sendTransaction(transaction)
-// 			console.log(res)
-
-// 			const response = await fetch('https://6adc-178-47-140-82.ngrok-free.app/transaction/send', {
-// 				method: 'POST',
-// 				headers: {
-// 					'Content-Type': 'application/json'
-// 				},
-// 				body: JSON.stringify({
-// 					initData: window.Telegram.WebApp.initData,
-// 					boc: res.boc
-// 				}),
-// 			})
-
-// 			if (!response.ok) {
-// 				throw new Error(
-// 						`Failed to log transaction: ${response.statusText}`				
-// 				)
-// 			}
-
-// 			const result = await response.json()
-// 			console.log(result)
-
-// 		} catch {
-// 			alert("Failed to transactopn")
-// 		}
-// 	}
-
-// 	return (
-// 		<>
-// 			<button onClick={() => sendTransaction()} className={styles.buy_stars}> <img src="/Star.svg" alt="" /> Buy stars</button>
-// 		</>
-// 	)
-
-// }
-
 export function Address() {
 
 	const userFriendlyAddress = useTonAddress()
@@ -82,20 +26,6 @@ export function Address() {
 			})
 		}
 	}, [userFriendlyAddress])
-
-	// return (
-	// 	<>
-	// 		{rawAddres && (
-	// 			<div style={{ textAlign: 'center', fontSize: '15px' }}>
-	// 				<b>User-friendly addres:</b>
-	// 				<div>{userFriendlyAddress}</div>
-	// 				<br />
-	// 				<b>Raw addres:</b>
-	// 				<div>{rawAddres}</div>
-	// 			</div>
-	// 		)}
-		// </>
-	// )
 }
 
 export function ConrolLabel() {
