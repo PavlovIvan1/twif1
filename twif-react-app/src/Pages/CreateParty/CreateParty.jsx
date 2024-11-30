@@ -1,88 +1,3 @@
-// import { FormControlLabel, Switch } from '@mui/material'
-// import Slider from '@mui/material/Slider'
-// import React, { useState } from 'react'
-// import styles from "./CreateParty.module.scss"
-
-
-// let isToggleOn = false;
-
-
-// export function ConrolLabel() {
-
-// 	const [checked, setChecked] = useState(false);
-
-// 	const handleChange = (event) => {
-// 			setChecked(event.target.checked);
-// 	};
-
-// 	return (
-// 		<>
-// 			<FormControlLabel
-//             control={
-//                 <Switch
-//                     checked={checked}
-//                     onChange={handleChange}
-//                     color="primary"
-//                 />
-//             }
-//             label={checked ? isToggleOn = true : isToggleOn = false}
-//         />
-// 		</>
-// 	)
-// }
-
-// export function CreatePartyComp() {
-
-// 	return (
-// 		<>
-// 		<div className={styles.CreateNewParty}>
-// 			<img src="/Logotype.png" alt="" />
-// 			<div className={styles.title_field}>
-// 				<label>Title</label>
-// 				<input type="text"/>
-// 			</div>
-// 			<div className={styles.title_field}>
-// 				<label>Quantity</label>
-// 				<input type="text"/>
-// 			</div>
-			
-// 			<div className={styles.chs_nft}>
-// 				<div className={styles.top_nft}>
-// 					<h3>NFT</h3>
-// 					<ConrolLabel />
-// 				</div>
-// 				<select className={styles.selectNFT__list}>
-//     			<option disabled value="Choise">Choise NFT</option>
-//     			<option value="NFT1">NFT1</option>
-// 				</select>
-// 			</div>
-// 			<div className={styles.chs_twif}>
-// 				<h3>TWIF</h3>
-// 				<ConrolLabel />
-// 			</div>
-//       <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" className={styles.slider} size='' />
-//     </div>
-// 		</>
-// 	)
-// }
-
-// export function CreateParty () {
-// 	return (
-// 		<>
-// 		<div className={styles.pages_bg}>
-// 			<div className={styles.title}>
-// 				<img src="/Group 36866.png" alt="back" />
-// 				<h2>Create new party</h2>
-// 			</div>
-// 			<CreatePartyComp />
-// 			<div className={styles.create}>
-// 				<h3>Create</h3>
-// 			</div>
-// 		</div>
-// 		</>
-// 	)
-// }
-
 import { FormControlLabel, Switch } from '@mui/material'
 import Slider from '@mui/material/Slider'
 import React, { useEffect, useState } from 'react'
@@ -245,7 +160,6 @@ export function CreatePartyComp() {
       })
         .then(response => response.json())
         .then(data => {
-          calert()
           console.log("Okay!", data)
           navigate("/parties")
           Toast.fire({
