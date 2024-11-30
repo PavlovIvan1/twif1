@@ -34,8 +34,6 @@ export function App() {
     
   }, [])
 
-  console.log(window.Telegram.WebApp.initData)
-
   return (
     <>
       <GameBlock />
