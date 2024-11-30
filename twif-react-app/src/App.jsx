@@ -7,7 +7,6 @@ import { GameBlock } from './GameBlock/GB'
 import { LeaderBoard } from './LeaderBoard/LB'
 import { useEffect } from 'react'
 import { ReferalSystem } from './ReferalSystem/RS'
-import { isMobile } from 'react-device-detect';
 
 
 export function App() {
