@@ -160,12 +160,19 @@ export function CreatePartyComp() {
       })
         .then(response => response.json())
         .then(data => {
-          console.log("Okay!", data)
+          console.log("Ответ от сервера:", data.detail);
+          if (data.detail) {
+            ToastErr.fire({
+              icon: "error",
+              title: data.detail
+            });
+          } else {
+            Toast.fire({
+              icon: "success",
+              title: "Created!"
+            });
+          } 
           navigate("/parties")
-          Toast.fire({
-            icon: "success",
-            title: "Created!"
-          });
         })
         .catch((error) => {
           console.error("Err:", error)
