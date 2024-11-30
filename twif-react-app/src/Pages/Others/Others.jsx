@@ -115,7 +115,7 @@ export function MyInfo() {
 
 export function Others() {
 
-	const manifestUrl = `${API_URL}/static-tonconnect-manifest.json`
+	const manifestUrl = `${API_URL}/static/tonconnect-manifest.json`
 	
 	return (
 		<>
