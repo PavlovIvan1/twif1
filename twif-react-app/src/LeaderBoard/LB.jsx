@@ -16,24 +16,6 @@ export function LeaderBoard__component({place, photo, name}) {
 }
 
 export function LeaderBoard() {
-
-	// useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch('http://94.198.217.245:5000/users/leaderboard?limit=5&offset=0');
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-  //       const result = await response.json();
-  //       console.log(result);
-  //     } catch (err) {
-  //       console.error(err.message);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
 	const [leaderBoard, setLeaderBoard] = useState(null);
 	const [loaading, setLoading] = useState(true)
 	
@@ -57,15 +39,7 @@ export function LeaderBoard() {
 
 	if (loaading) {
 		return (
-			<div className='loading'>
-				{/* <ClipLoader
-				color={"#FBB601"}
-				size={150}
-				aria-label="Loading Spinner"
-				data-testid="loader"
-		  	/> */}
-				<ClimbingBoxLoader color='#FBB601' />
-			</div>
+			<></>
 		)
 	}
 
