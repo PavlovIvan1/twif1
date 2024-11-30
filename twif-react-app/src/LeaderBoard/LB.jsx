@@ -23,7 +23,6 @@ export function LeaderBoard() {
 		fetch(`${API_URL}/users/leaderboard?limit=5&offset=0`)
 			.then(response => response.json())
 			.then(data => {
-				console.log(data.leaders)
 				setLeaderBoard(data.leaders)
 			})
 			.catch(error => {
