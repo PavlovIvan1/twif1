@@ -135,63 +135,106 @@ export function CreateSquadComp() {
     const setSquadFoundersIds = useGlobalStore((state) => state.setSquadFoundersIds);
     const squadFoundersIds = useGlobalStore((state) => state.squadFoundersIds);
 
-    const create_party_btn = () => {
-      console.log(uploadedFile);
-      console.log("Title and q", title, quantity)
-      console.log("squadFoundersIds", squadFoundersIds)
-      
+    // const create_party_btn = () => {
+    //   let formData = new FormData();
+    //   formData.append('logo', uploadedFile);
+    //   formData.append('founder_ids', JSON.stringify(squadFoundersIds))
 
-      const formData = new FormData();
+    //   console.log(window.Telegram.WebApp.initData)
+
+    //   const data = {
+    //     initData: window.Telegram.WebApp.initData,
+    //     title: title,
+    //     quantity: quantity,
+    //     founder_share: 0.3,
+    //     members_share: 0.4,
+    //     project_share: 0.2,
+    //     voters_share: 0.1,
+    //   };
+    
+    //   const params = new URLSearchParams(data).toString();
+
+    //   fetch(` ${API_URL}/party/squad/create?` + params, {
+    //     method: 'POST',
+    //     headers: {
+    //       'accept': 'application/json'
+    //     },
+    //     body: formData
+    //   })
+    //     .then(response => {
+    //       console.log(response)
+    //       return response.json()
+    //     })
+    //     .then(data => {
+    //       console.log("Ответ от сервера:", data.detail);
+    //       if (data.detail) {
+    //         ToastErr.fire({
+    //           icon: "error",
+    //           title: data.detail
+    //         });
+    //       } else {
+    //         Toast.fire({
+    //           icon: "success",
+    //           title: "Created!"
+    //         });
+    //       } 
+    //       navigate("/parties")
+    //     })
+    //     .catch((error) => {
+    //       console.error("Err:", error)
+    //       ToastErr.fire({
+    //         icon: "error",
+    //         title: "Somph went wrong!"
+    //       });
+    //     })
+    // }
+
+
+  const create_party_btn = () => {
+    var formData = new FormData();
+
+    if (uploadedFile) {
+      console.log('uploadedFile exists');
       formData.append('logo', uploadedFile);
       formData.append('founder_ids', JSON.stringify(squadFoundersIds))
+    }
+    else {
+      formData = null
+    }
 
-      console.log(window.Telegram.WebApp.initData)
+    const data = {
+      initData: window.Telegram.WebApp.initData,
+      title: title,
+      quantity: quantity,
+      founder_share: 0.3,
+      members_share: 0.4,
+      project_share: 0.2,
+      voters_share: 0.1
+    };
 
-      const data = {
-        initData: window.Telegram.WebApp.initData,
-        title: title,
-        quantity: quantity,
-        founder_share: 0.3,
-        members_share: 0.4,
-        project_share: 0.2,
-        voters_share: 0.1,
-      };
-    
-      const params = new URLSearchParams(data).toString();
+    const params = new URLSearchParams(data).toString();
 
-      fetch(` ${API_URL}/party/squad/create?` + params, {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json'
-        },
-        body: formData
-      })
-        .then(response => {
-          console.log(response)
-          return response.json()
-        })
-        .then(data => {
-          console.log("Ответ от сервера:", data.detail);
-          if (data.detail) {
+    fetch(`${API_URL}/squad/create?${params}`, {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => {
+        if (!response.ok) {
+          response.json().then(errData => {
             ToastErr.fire({
               icon: "error",
-              title: data.detail
+              title: errData.detail || 'Ошибка при создании'
             });
-          } else {
-            Toast.fire({
-              icon: "success",
-              title: "Created!"
-            });
-          } 
-          navigate("/parties")
-        })
-        .catch((error) => {
-          console.error("Err:", error)
-          ToastErr.fire({
-            icon: "error",
-            title: "Somph went wrong!"
           });
-        })
+        }
+        else {
+          Toast.fire({
+            icon: "success",
+            title: "Created!"
+          });
+          navigate("/parties")
+        };
+      })
     }
 
 
