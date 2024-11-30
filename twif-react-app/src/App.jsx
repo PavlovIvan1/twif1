@@ -13,23 +13,10 @@ export function App() {
 
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   if (window.Telegram.WebApp.platform == "tdesktop" || window.Telegram.WebApp.platform == 'macos' || window.Telegram.WebApp.initData.length == 0) {
-  //     navigate('/mobapp')
-  //   }
-  //   else {
-  //     window.Telegram.WebApp.ready();
-  //     window.Telegram.WebApp.setHeaderColor("bg_color");
-
-  //     if (window.Telegram.WebApp.isVersionAtLeast(8.0)) {
-  //       window.Telegram.WebApp.requestFullscreen();
-  //     } else {
-  //       console.warn("Fullscreen API недоступен");
-  //     }
-  //   }
-  // }, []);
-
-    useEffect(() => {
+  useEffect(() => {
+    if (window.Telegram.WebApp.platform == "tdesktop" || window.Telegram.WebApp.platform == 'macos' || window.Telegram.WebApp.initData.length == 0) {
+      // navigate('/mobapp')
+    }
       window.Telegram.WebApp.ready();
       window.Telegram.WebApp.setHeaderColor("bg_color");
 
@@ -38,7 +25,6 @@ export function App() {
       } else {
         console.warn("Fullscreen API недоступен");
       }
-    }
   }, []);
 
 
