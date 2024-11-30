@@ -25,14 +25,12 @@ export function App() {
         console.warn("Fullscreen API недоступен");
       }
     }
-  }, []);
-  
-  useEffect(() => {
+
     if (window.Telegram.WebApp.platform == "tdesktop") {
       navigate('/mobapp')
     }
     
-  }, [])
+  }, []);
 
   console.log(window.Telegram.WebApp.platform)
 
