@@ -15,7 +15,7 @@ export function App() {
 
   useEffect(() => {
     if (window.Telegram.WebApp.platform == "tdesktop" || window.Telegram.WebApp.platform == 'macos' || window.Telegram.WebApp.initData.length == 0) {
-      //navigate('/mobapp')
+      navigate('/mobapp')
     }
     window.Telegram.WebApp.ready();
     window.Telegram.WebApp.setHeaderColor("bg_color");
