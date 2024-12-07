@@ -19,7 +19,7 @@ export function App() {
     }
     window.Telegram.WebApp.ready();
     window.Telegram.WebApp.setHeaderColor("bg_color");
-    window.Telegram.WebApp.isVerticalSwipesEnabled(false)
+    window.Telegram.WebApp.disableVerticalSwipes()
 
     // if (window.Telegram.WebApp.isVersionAtLeast(8.0)) {
     //   window.Telegram.WebApp.requestFullscreen();
