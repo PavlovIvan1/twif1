@@ -21,11 +21,11 @@ export function App() {
     window.Telegram.WebApp.setHeaderColor("bg_color");
     window.Telegram.WebApp.isVerticalSwipesEnabled(false)
 
-    if (window.Telegram.WebApp.isVersionAtLeast(8.0)) {
-      window.Telegram.WebApp.requestFullscreen();
-    } else {
-      console.warn("Fullscreen API недоступен");
-    }
+    // if (window.Telegram.WebApp.isVersionAtLeast(8.0)) {
+    //   window.Telegram.WebApp.requestFullscreen();
+    // } else {
+    //   console.warn("Fullscreen API недоступен");
+    // }
   }, []);
 
 
