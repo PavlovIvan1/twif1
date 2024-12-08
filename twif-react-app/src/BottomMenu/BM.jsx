@@ -9,6 +9,7 @@ export function BottomMenu() {
 	const Store = location.pathname === '/store'
 	const EarnMore = location.pathname === '/earnmore'
 	const Others = location.pathname === '/others'
+	const Claim = location.pathname === '/claim'
 
 	return (
 		<div className="pageas_bg">
@@ -37,6 +38,8 @@ export function BottomMenu() {
 					viewBox="0 0 18 12" xmlns="http://www.w3.org/2000/svg" style={{ fill: Others ? "black" : "#AAB2BD"  }}>
 					<path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H17C17.5523 0 18 0.447715 18 1C18 1.55228 17.5523 2 17 2H1C0.447716 2 0 1.55228 0 1ZM0 6C0 5.44772 0.447715 5 1 5H17C17.5523 5 18 5.44772 18 6C18 6.55228 17.5523 7 17 7H1C0.447716 7 0 6.55228 0 6ZM1 10C0.447715 10 0 10.4477 0 11C0 11.5523 0.447715 12 1 12H11C11.5523 12 12 11.5523 12 11C12 10.4477 11.5523 10 11 10H1Z"/>
 				</svg>
+
+				<img src="/Claim.svg" alt="claim" onClick={() => {navigate('/claim')}} />
 
 
 			</div>

@@ -8,6 +8,7 @@ import Game from './Game/GameMain.jsx'
 import { GetReady } from './Game/GetReady.jsx'
 import { Information } from './Game/Information.jsx'
 import { AboutParty } from './Pages/AboutParty/AboutParty.jsx'
+import { Claim } from './Pages/Claim.jsx'
 import { CreateParty } from './Pages/CreateParty/CreateParty.jsx'
 import { CreateSquad } from './Pages/CreateSquad/CreateSquad.jsx'
 import { EarnMore } from './Pages/EarnMore/EM.jsx'
@@ -73,7 +74,11 @@ const router = createBrowserRouter([
   {
     path: "/mobapp",
     element: <PlayOnMobile />,
-  }
+  },
+  {
+    path: "/claim",
+    element: <Claim />,
+  },
 ]);
 
 
