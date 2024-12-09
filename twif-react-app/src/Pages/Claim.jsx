@@ -78,7 +78,7 @@ export function Claim() {
 				{season ? (
 					<>
 						<h1 style={{ fontFamily: 'Bevan', fontSize: '19px', color: 'white', letterSpacing: '2px', textAlign: 'center' }}>
-							Season {season} is over, claim your tokens</span>
+							Season {season} is over, claim your tokens
 						</h1>
 						<button
 							style={{
