@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Loader } from '../Loading'
 import { API_URL } from '../config'
+import { BottomMenu } from '../BottomMenu/BM'
 
 import Swal from 'sweetalert2'
 import 'sweetalert2/src/sweetalert2.scss'
@@ -122,6 +123,9 @@ export function Claim() {
 						</button>
 					</>
 				)}
+				<div style={{ position: 'absolute', bottom: '0' }}>
+					<BottomMenu />
+				</div>
 			</div>
 		</>
 	);
