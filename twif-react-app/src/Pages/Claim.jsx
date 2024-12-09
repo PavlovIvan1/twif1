@@ -28,7 +28,7 @@ export function Claim() {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				init_data: window.Telegram.WebApp.initData
+				initData: window.Telegram.WebApp.initData
 			})
 		})
 		.then(response => {
