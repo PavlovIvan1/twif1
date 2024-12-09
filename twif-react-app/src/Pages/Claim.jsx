@@ -2,6 +2,27 @@ import { useEffect, useState } from 'react'
 import { Loader } from '../Loading'
 import { API_URL } from '../config'
 
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: "top",
+    showConfirmButton: false,
+    timer: 3000,
+    color: "#fff",
+    timerProgressBar: true,
+    background: "#009748",
+    // background: "#DD3634",
+    customClass: {
+      popup: 'blue-background inter-font'
+    },
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+});
+
 export function Claim() {
 	const [loading, setLoading] = useState(true);
 	const [season, setSeason] = useState(null); 
@@ -36,6 +57,10 @@ export function Claim() {
 		})
 		.then(data => {
 			console.log(data)
+			Toast.fire({
+            			icon: "success",
+            			title: "Claimed!"
+          		});
 		})
 		.catch(err => {
 			console.error('Error fetching claim:', err);
