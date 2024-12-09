@@ -8,17 +8,13 @@ export function Claim() {
 
 	useEffect(() => {
 		fetch(`http://188.245.187.190:4550/boosts/finished_season`)
-			.then(response => {
-				if (!response.ok) {
-					throw new Error('No finished season');
-				}
-				return response.json();
-			})
+			.then(response => response.json())
 			.then(data => {
+				console.log("finished_season", finished_season)
 				setSeason(data.season);
 			})
 			.catch(err => {
-				console.error('Error fetching data:', err);
+				console.error('Error fetching seasons:', err);
 				setError(err.message); 
 			})
 			.finally(() => {
@@ -38,7 +34,7 @@ export function Claim() {
 			console.log(data)
 		})
 		.catch(err => {
-			console.error('Error fetching data:', err);
+			console.error('Error fetching claim:', err);
 			setError(err.message);
 		})
 	}
