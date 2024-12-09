@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react'
 import { Loader } from '../Loading'
+import { API_URL } from '../config'
 
 export function Claim() {
 	const [loading, setLoading] = useState(true);
 	const [season, setSeason] = useState(null); 
-	const [error, setError] = useState(null); 
 
 	useEffect(() => {
-		fetch(`https://trumpwifhat.space/api/boosts/finished_season`)
+		fetch(`${API_URL}/boosts/finished_season`)
 			.then(response => response.json())
 			.then(data => {
-				console.log("finished_season", finished_season)
-				setSeason(data.season);
+				console.log("finished_season", data)
+				if (data.season) {
+					setSeason(data.season);
+				}
 			})
 			.catch(err => {
 				console.error('Error fetching seasons:', err);
-				setError(err.message); 
 			})
 			.finally(() => {
 				setLoading(false);
@@ -23,9 +24,12 @@ export function Claim() {
 	}, []);
 
 	const ClaimBtn = () => {
-		fetch(`https://trumpwifhat.space/api/boosts/claim`, {
+		fetch(`${API_URL}/boosts/claim`, {
 			method: 'POST',
-			"init_data": window.Telegram.WebAap.initData
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				init_data: window.Telegram.WebApp.initData
+			})
 		})
 		.then(response => {
 			return response.json();
@@ -35,7 +39,6 @@ export function Claim() {
 		})
 		.catch(err => {
 			console.error('Error fetching claim:', err);
-			setError(err.message);
 		})
 	}
 
