@@ -42,7 +42,7 @@ export function TopRated() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(${API_URL}/party/leaderboard?limit=5)
+    fetch(`${API_URL}/party/leaderboard?limit=5`)
       .then(response => response.json())
       .then(data => {
         if (data && Array.isArray(data.leaders)) {
