@@ -7,7 +7,7 @@ export function Claim() {
 	const [error, setError] = useState(null); 
 
 	useEffect(() => {
-		fetch(`http://188.245.187.190:4550/boosts/finished_season`)
+		fetch(`https://trumpwifhat.space/api/boosts/finished_season`)
 			.then(response => response.json())
 			.then(data => {
 				console.log("finished_season", finished_season)
@@ -23,7 +23,7 @@ export function Claim() {
 	}, []);
 
 	const ClaimBtn = () => {
-		fetch(`http://188.245.187.190:4550/boosts/claim`, {
+		fetch(`https://trumpwifhat.space/api/boosts/claim`, {
 			method: 'POST',
 			"init_data": window.Telegram.WebAap.initData
 		})
