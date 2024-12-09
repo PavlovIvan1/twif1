@@ -123,7 +123,7 @@ export function Claim() {
 						</button>
 					</>
 				)}
-				<div style={{ position: 'absolute', bottom: '0' }}>
+				<div style={{ position: 'absolute', bottom: '0', width: '100%' }}>
 					<BottomMenu />
 				</div>
 			</div>
