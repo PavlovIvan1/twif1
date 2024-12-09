@@ -27,7 +27,10 @@ export function Claim() {
 	}, []);
 
 	const ClaimBtn = () => {
-		fetch(`http://188.245.187.190:4550/boosts/claim`)
+		fetch(`http://188.245.187.190:4550/boosts/claim`, {
+			method: 'POST',
+			"init_data": window.Telegram.WebAap.initData
+		})
 		.then(response => {
 			return response.json();
 		})
