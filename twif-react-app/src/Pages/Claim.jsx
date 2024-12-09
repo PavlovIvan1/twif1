@@ -59,7 +59,7 @@ export function Claim() {
 			console.log(data)
 			Toast.fire({
             			icon: "success",
-            			title: "Claimed!"
+            			title: data.detail || "Claimed!"
           		});
 		})
 		.catch(err => {
