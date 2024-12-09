@@ -82,10 +82,10 @@ export function Claim() {
 						<button
 							style={{
 								cursor: 'not-allowed',
-								backgroundColor: '#ccc',
+								backgroundColor: 'white',
 								borderRadius: '12px',
 								width: '95%',
-								color: '#666',
+								color: '#51B3F6',
 								height: '56px',
 								border: 'none',
 								fontFamily: 'Inter',
