@@ -17,6 +17,10 @@ import { PlayOnMobile } from './Pages/MobileApp/MobApp.jsx'
 import { Others } from './Pages/Others/Others.jsx'
 import { Parties } from './Pages/Parties/Parties.jsx'
 import { Store } from './Pages/Store/Store.jsx'
+import { TonConnectUIProvider } from '@tonconnect/ui-react'
+import {API_URL} from './config.js';
+
+const URL = `${API_URL}/static/tonconnect-manifest.json`
 
 const router = createBrowserRouter([
   
@@ -85,6 +89,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <TonConnectUIProvider manifestUrl={URL}>
+      <RouterProvider router={router} />
+    </TonConnectUIProvider>
   </StrictMode>,
 )
