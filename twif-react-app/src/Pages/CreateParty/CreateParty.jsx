@@ -90,10 +90,15 @@ export function CreatePartyComp() {
   };
 
   const [selectNftValue, setselectNftValue] = useState("")
+  const [twifSlideValue, setTwifSlideValue] = useState(0)
 
   const select_value = (event) => {
     setselectNftValue(event.target.value)
   }
+  const twif_sl_value = (event) => {
+    setTwifSlideValue(event.target.value)
+  }
+
 
   let [title, setTitle] = useState('h')
   const [quantity, setQuantity] = useState(0)
@@ -144,7 +149,9 @@ export function CreatePartyComp() {
       founder_share: 0.3,
       members_share: 0.4,
       project_share: 0.2,
-      voters_share: 0.1
+      voters_share: 0.1, 
+      twif_requirement: twifSlideValue,
+      nft_requirement: selectNftValue
     };
 
     const params = new URLSearchParams(data).toString();
