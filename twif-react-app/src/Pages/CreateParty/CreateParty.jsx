@@ -246,7 +246,7 @@ export function CreatePartyComp() {
         </div>
 
         {twifChecked && (
-          <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" className={styles.slider} />
+          <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" className={styles.slider} onChange(twif_sl_value) />
         )}
       </div>
       <div className={styles.create}>
