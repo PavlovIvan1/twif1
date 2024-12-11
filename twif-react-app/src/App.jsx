@@ -8,7 +8,6 @@ import { LeaderBoard } from './LeaderBoard/LB'
 import { useEffect } from 'react'
 import { ReferalSystem } from './ReferalSystem/RS'
 
-
 export function App() {
 
   const navigate = useNavigate()
@@ -43,4 +42,3 @@ export function App() {
     </>
   )
 }
-
