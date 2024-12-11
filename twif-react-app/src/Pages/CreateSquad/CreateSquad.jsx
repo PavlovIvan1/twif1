@@ -428,10 +428,13 @@ export function CreateSquadComp() {
   };
 
   const [selectNftValue, setselectNftValue] = useState("")
+  const [twifSlideValue, setTwifSlideValue] = useState(0)
 
   const select_value = (event) => {
     setselectNftValue(event.target.value)
-    console.log(event.target.value)
+  }
+  const twif_sl_value = (event) => {
+    setTwifSlideValue(event.target.value)
   }
 
   let [title, setTitle] = useState('h')
@@ -544,7 +547,9 @@ export function CreateSquadComp() {
       founder_share: 0.3,
       members_share: 0.4,
       project_share: 0.2,
-      voters_share: 0.1
+      voters_share: 0.1, 
+      twif_requirement: twifSlideValue,
+      nft_requirement: selectNftValue
     };
 
     const params = new URLSearchParams(data).toString();
@@ -641,7 +646,7 @@ export function CreateSquadComp() {
       </div>
 
 			{ twifChecked && (
-			 <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" className={styles.slider} />
+			 <Slider defaultValue={0} aria-label="Default" valueLabelDisplay="auto" className={styles.slider} onChange(twif_sl_value) />
 			)}
     </div>
     <div className={styles.create}>
