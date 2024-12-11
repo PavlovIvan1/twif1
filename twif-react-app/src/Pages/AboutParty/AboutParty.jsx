@@ -6,12 +6,13 @@ import 'sweetalert2/src/sweetalert2.scss'
 import { API_URL } from '../../config.js'
 import { useGlobalStore } from '../../useGlobalStore'
 import styles from './AboutParty.module.scss'
+import { useTonConnectUI } from '@tonconnect/ui-react';
 
-export function LeaderBoard__component({place, photo, name, tag, colorClass, partyId}) {
+export function LeaderBoard__component({ place, photo, name, tag, colorClass, partyId }) {
 
 	switch (tag) {
 		case 'creator':
-			colorClass = styles.ProjectColor; 
+			colorClass = styles.ProjectColor;
 			break;
 		case 'members':
 			colorClass = styles.MembersColor;
@@ -29,13 +30,13 @@ export function LeaderBoard__component({place, photo, name, tag, colorClass, par
 		<>
 			<div className={styles.LeaderBoard__component}>
 				<li>{place}</li>
-				<img src={`${API_URL}/${photo}`} alt="" className={styles.avatar}/>
+				<img src={`${API_URL}/${photo}`} alt="" className={styles.avatar} />
 
 				<div className={styles.info}>
 					<p>{name}</p>
 					<div className={styles.Tag}>
-          	{tag && <span className={colorClass}>{tag}</span>}
-        	</div>
+						{tag && <span className={colorClass}>{tag}</span>}
+					</div>
 					{/* <div className={styles.Tag}>
 						{tag ? <span className={styles[colorClass]} >{tag}</span> : <></>}
 					</div> */}
@@ -55,53 +56,53 @@ export function AboutPartyComp({ partyId, description }) {
 
 	useEffect(() => {
 		fetch(`	${API_URL}/party/get_party_members?party_id=${partyId}`)
-		.then(response => response.json())
-		.then(data => {
-			console.log("Data:", data);
-			setPartyUsers(data.members)
-		})
-		.catch(err => {
-			console.error("Err", err)
-		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("Data:", data);
+				setPartyUsers(data.members)
+			})
+			.catch(err => {
+				console.error("Err", err)
+			})
 
 		fetch(`${API_URL}/boosts/deadline`)
-		.then(response => response.json())
-		.then(data => {
-			setDeadline(data.deadline)
-			console.log("BOOST d.:", data.deadline);
-		})
-		.catch(err => {
-			console.error("Err", err)
-		})
+			.then(response => response.json())
+			.then(data => {
+				setDeadline(data.deadline)
+				console.log("BOOST d.:", data.deadline);
+			})
+			.catch(err => {
+				console.error("Err", err)
+			})
 
 	}, [])
 
-		if (!partyUsers) {
-			return <div></div>;
-		}
-		// if (!deadline) {
-		// 	return <div></div>;
-		// }
+	if (!partyUsers) {
+		return <div></div>;
+	}
+	// if (!deadline) {
+	// 	return <div></div>;
+	// }
 
-		const handleVote = () => {
-			fetch(`${API_URL}/party/vote`, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ 
-					initData: window.Telegram.WebApp.initData,
-					party_id: partyId
-				})
+	const handleVote = () => {
+		fetch(`${API_URL}/party/vote`, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				initData: window.Telegram.WebApp.initData,
+				party_id: partyId
 			})
+		})
 			.then(response => response.json())
 			.then(data => {
 				console.log("Vote:", data)
 			})
 			.catch(error => {
-        console.error('Error vote:', error);
-      });
-		}
+				console.error('Error vote:', error);
+			});
+	}
 
-		
+
 	return (
 		<>
 			<div className={styles.AboutPartyComp}>
@@ -147,12 +148,12 @@ export function AboutPartyComp({ partyId, description }) {
 			</div>
 
 			<div className={styles.lb}>
-			<div className={styles.LeaderBoard}>
-				<div className={styles.LeaderBoard__title}><h3>Party Members</h3></div>
-				<div className={styles.LeaderBoard__list}>
+				<div className={styles.LeaderBoard}>
+					<div className={styles.LeaderBoard__title}><h3>Party Members</h3></div>
+					<div className={styles.LeaderBoard__list}>
 
 
-				{/* {partyUsers.map((user, index) => (
+						{/* {partyUsers.map((user, index) => (
 				<LeaderBoard__component
           key={user.id}
           place={index + 1} 
@@ -160,21 +161,21 @@ export function AboutPartyComp({ partyId, description }) {
           name={user.fullname}
 					tag={user.status}/>
       	))} */}
-				
-				{partyUsers.map((user, index) => (
-  			<div key={user.id}>
-    			<LeaderBoard__component
-      			place={index + 1} 
-      			photo={user.avatar} 
-      			name={user.fullname}
-      			tag={user.status}
-    			/>
-    			<hr />
-  			</div>
-				))}
+
+						{partyUsers.map((user, index) => (
+							<div key={user.id}>
+								<LeaderBoard__component
+									place={index + 1}
+									photo={user.avatar}
+									name={user.fullname}
+									tag={user.status}
+								/>
+								<hr />
+							</div>
+						))}
 
 
-					{/* <LeaderBoard__component place={1} photo={"/Photo.png"} name={"Donald"} tag={"Founder"}/>
+						{/* <LeaderBoard__component place={1} photo={"/Photo.png"} name={"Donald"} tag={"Founder"}/>
 					<hr />
 					<LeaderBoard__component place={2} photo={"/Photo.png"} name={"Donald"} tag={"Project"} colorClass={"Project-Color"} />
 					<hr />
@@ -183,58 +184,59 @@ export function AboutPartyComp({ partyId, description }) {
 					<LeaderBoard__component place={4} photo={"/Photo.png"} name={"Donald"} tag={"Members"} colorClass={"Members-Color"} />
 					<hr />
 					<LeaderBoard__component place={5} photo={"/Photo.png"} name={"Donald"} tag={"Members"} colorClass={"Members-Color"} /> */}
+					</div>
 				</div>
 			</div>
-		</div>
 
 		</>
 	)
 }
 
 export function AboutParty() {
+	const [tonConnectUI, setOptions] = useTonConnectUI();
 
 	const Toast = Swal.mixin({
-    toast: true,
-    position: "top",
-    showConfirmButton: false,
-    timer: 3000,
-    color: "#fff",
-    timerProgressBar: true,
-    background: "#009748",
-    // background: "#DD3634",
-    customClass: {
-      popup: 'blue-background inter-font'
-    },
-    didOpen: (toast) => {
-      toast.onmouseenter = Swal.stopTimer;
-      toast.onmouseleave = Swal.resumeTimer;
-    }
-  });
+		toast: true,
+		position: "top",
+		showConfirmButton: false,
+		timer: 3000,
+		color: "#fff",
+		timerProgressBar: true,
+		background: "#009748",
+		// background: "#DD3634",
+		customClass: {
+			popup: 'blue-background inter-font'
+		},
+		didOpen: (toast) => {
+			toast.onmouseenter = Swal.stopTimer;
+			toast.onmouseleave = Swal.resumeTimer;
+		}
+	});
 
-  const ToastErr = Swal.mixin({
-    toast: true,
-    position: "top",
-    showConfirmButton: false,
-    timer: 3000,
-    color: "#fff",
-    timerProgressBar: true,
-    // background: "#009748",
-    background: "#DD3634",
-    customClass: {
-      popup: 'blue-background inter-font'
-    },
-    didOpen: (toast) => {
-      toast.onmouseenter = Swal.stopTimer;
-      toast.onmouseleave = Swal.resumeTimer;
-    }
-  });
+	const ToastErr = Swal.mixin({
+		toast: true,
+		position: "top",
+		showConfirmButton: false,
+		timer: 3000,
+		color: "#fff",
+		timerProgressBar: true,
+		// background: "#009748",
+		background: "#DD3634",
+		customClass: {
+			popup: 'blue-background inter-font'
+		},
+		didOpen: (toast) => {
+			toast.onmouseenter = Swal.stopTimer;
+			toast.onmouseleave = Swal.resumeTimer;
+		}
+	});
 
 	const navigate = useNavigate()
 
 	const location = useLocation();
-  const { state } = location;
+	const { state } = location;
 
-  const { partyId } = state || {};
+	const { partyId } = state || {};
 
 	const [partyData, setPartyData] = useState(null)
 	const [partyImg, setPartyImg] = useState('')
@@ -242,34 +244,83 @@ export function AboutParty() {
 
 	useEffect(() => {
 		fetch(`${API_URL}/party/get?party_id=${partyId}`)
-		.then(response => response.json())
-		.then(data => {
-			console.log("Datades", data);
-			setPartyData(data.title)
-			setPartyImg(data.logoURL)
-			setPartyD(data.description)
-		})
-		.catch(err => {
-			console.error("Err", err)
-		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("Datades", data);
+				setPartyData(data.title)
+				setPartyImg(data.logoURL)
+				setPartyD(data.description)
+			})
+			.catch(err => {
+				console.error("Err", err)
+			})
 	}, [])
 
 	const partyJoin = () => {
-		fetch(`${API_URL}/party/join`, {
+		const params = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ 
+			body: JSON.stringify({
 				initData: window.Telegram.WebApp.initData,
-				party_id: partyId 
-				})
+				party_id: partyId
 			})
-				.then(response => response.json())
-				.then(data => {
-					alert('Вы успешно вошли в партию')
-				})
-				.catch(error => {
-					console.error('Error:', error);
-				});
+		}
+		fetch(`${API_URL}/party/join`, params)
+			.then(response => {
+				console.log(response.status);
+				if (response.status === 402) {
+					return response.json().then(transactionData => {
+						console.log(transactionData.sender_jetton_wallet_address, transactionData.payload); 
+
+						const myTransaction = {
+							validUntil: Math.floor(Date.now() / 1000) + 360,
+							messages: [
+								{
+									address: transactionData.sender_jetton_wallet_address,
+									amount: "50000000",
+									payload: transactionData.payload
+								}
+							]
+						};
+
+						return tonConnectUI.sendTransaction(myTransaction); // Return the next Promise
+					}).then(result => {
+						if (result.boc) {
+							fetch(`${API_URL}/party/join`, params).then(response => {
+								if (response.status == 200) {
+									Toast.fire(
+										{
+											icon: 'success',
+											title: 'Successfully joined'
+										}
+									)
+								}
+								else {
+									ToastErr.fire(
+										{
+											icon: 'error',
+											title: 'Payment error'
+										}
+									)
+								}
+							})
+						}		
+					});
+				}
+				if (response.status === 400) {
+					return response.json().then(data => {
+						ToastErr.fire(
+							{
+								icon: 'error',
+								title: data.detail
+							}
+						)
+					})
+					console.log(response);
+					alert('Ошибка');
+				}
+
+			})
 	}
 
 	const setSquadFounders = useGlobalStore((state) => state.setSquadFounders);
@@ -280,83 +331,83 @@ export function AboutParty() {
 
 	const [userIds, setUserIds] = useState([]);
 
-  useEffect(() => {
-    const fetchUserIds = () => {
-      squadFounders.forEach((user) => {
-        fetch(`${API_URL}/users/search?query=${user.name}`)
-          .then(response => response.json())
-          .then(data => {
-            if (data.users && data.users.length > 0) {
-              const userId = data.users[0].id;
-              setUserIds(prevIds => [...prevIds, userId]);
-            } else {
-              console.log(`User not found for ${user.name}`);
-            }
-          })
-          .catch(error => console.error(`Error ${user.name}:`, error));
-      });
-    }; 
+	useEffect(() => {
+		const fetchUserIds = () => {
+			squadFounders.forEach((user) => {
+				fetch(`${API_URL}/users/search?query=${user.name}`)
+					.then(response => response.json())
+					.then(data => {
+						if (data.users && data.users.length > 0) {
+							const userId = data.users[0].id;
+							setUserIds(prevIds => [...prevIds, userId]);
+						} else {
+							console.log(`User not found for ${user.name}`);
+						}
+					})
+					.catch(error => console.error(`Error ${user.name}:`, error));
+			});
+		};
 
-    fetchUserIds();
+		fetchUserIds();
 		setSquadFoundersIds(userIds)
-  }, [squadFounders]);
+	}, [squadFounders]);
 
 	const partyJoinAsFounder = () => {
 		fetch(`${API_URL}/party/join_as_founder`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ 
+			body: JSON.stringify({
 				initData: window.Telegram.WebApp.initData,
-				party_id: partyId 
+				party_id: partyId
+			})
+		})
+			.then(response => response.text())
+			.then(data => {
+				Toast.fire({
+					icon: 'success',
+					title: 'Success'
 				})
 			})
-				.then(response => response.text())
-				.then(data => {
-					Toast.fire({
-						icon: 'success',
-						title: 'Success'
-					})
-				})
-				.catch(error => {
-					console.error('Error:', error);
-				});
+			.catch(error => {
+				console.error('Error:', error);
+			});
 	}
-	
+
 
 
 	// const navigate2 = useNavigate()
 
-  // const handleClickEd = () => {
-  //   navigate2("/editing", { state: { idp } });
-  // };
+	// const handleClickEd = () => {
+	//   navigate2("/editing", { state: { idp } });
+	// };
 
 	// const navigate2 = useNavigate();
-  // const [idp1, setIdp1] = useState(""); // Пример id
+	// const [idp1, setIdp1] = useState(""); // Пример id
 
-  // const handleNavigate = () => {
-  //     navigate('/editing', { state: { idp1 } });
-  // };
+	// const handleNavigate = () => {
+	//     navigate('/editing', { state: { idp1 } });
+	// };
 
 	// const setIdp = useGlobalStore((state) => state.setIdp);
 	// const idp = useGlobalStore((state) => state.idp);
 
 	// console.log("Party id", partyId)
-  // const handleNavigate = () => {
-  //     setIdp(partyId)
+	// const handleNavigate = () => {
+	//     setIdp(partyId)
 	// 		console.log("IDP::", idp)
 	// 		navigate('/editing')
-  // };
+	// };
 
 	// const setIdp = useGlobalStore((state) => state.setIdp);
 	// const idp = useGlobalStore((state) => state.idp);
 
 	// const handleNavigate = () => {
-  //   setIdp(partyId);
-  //   navigate('/editing');
+	//   setIdp(partyId);
+	//   navigate('/editing');
 	// };
 
 	// useEffect(() => {
-  //   console.log("Updated IDP:", idp);
+	//   console.log("Updated IDP:", idp);
 	// }, [idp]);
 
 	// const handleNavigate = () => {
@@ -367,12 +418,12 @@ export function AboutParty() {
 		<>
 			<div className={styles.pages_bg}>
 				<div className={styles.title}>
-					<img src="/Group 36866.png" alt="back" width={48} height={48}  onClick={ ()=> navigate('/parties')}  />
+					<img src="/Group 36866.png" alt="back" width={48} height={48} onClick={() => navigate('/parties')} />
 					<div className={styles.party_name}>
 						<img src={partyImg} alt="" className={styles.avatar} />
 						<h2>{partyData}</h2>
 					</div>
-					<img src="/Vector.svg" alt="" width={18.32} height={18.4} onClick={() => navigate("/editing")}/>
+					<img src="/Vector.svg" alt="" width={18.32} height={18.4} onClick={() => navigate("/editing")} />
 				</div>
 				<AboutPartyComp partyId={partyId} description={partyD} />
 				<div className={styles.join}>
@@ -384,6 +435,5 @@ export function AboutParty() {
 				</div>
 			</div>
 		</>
-	)	
+	)
 }
-
