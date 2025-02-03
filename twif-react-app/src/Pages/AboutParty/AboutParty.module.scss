@@ -1,0 +1,300 @@
+.pages_bg {
+	height: 100%;
+	background-color: #51B3F6;
+
+	.title {
+		width: 100% !important;
+		background-image: url("/Sky.png");
+		height: 100px;
+		display: flex !important;
+		align-items: center;
+		justify-content: space-between !important;
+		box-sizing: border-box;
+		padding: 20px;
+
+		h1 {
+			font-family: "Bevan";
+			color: white;
+			font-size: 28px;
+			font-weight: 400;
+		}
+		h2 {
+			font-family: "Inter";
+			color: white;
+			font-size: 17px;
+			font-weight: 700;
+			margin-left: 10px;
+		}
+		.party_name {
+			display: flex;
+			align-items: center;
+			width: auto;
+			justify-content: space-between;
+		}
+	}
+}
+
+.AboutPartyComp {
+	font-family: "Bevan" !important;
+
+	margin-top: 10px;
+
+	background-color: white;
+	border-radius: 24px;
+	width: 100%;
+	height: 365px;
+	box-sizing: border-box;
+	padding: 20px;
+
+
+
+	&__title {
+		color: #0A3161;
+		font-size: 20px;
+		font-weight: 400;
+		margin-bottom: 15px;
+	}
+
+	&__info {
+		width: 285px;
+
+		p {
+			font-family: "Inter";
+			font-size: 17px;
+			font-weight: 500;
+			color: #434A53;
+		}
+	}
+
+  hr {
+		margin: 0 !important;
+		margin-bottom: 20px !important;
+		margin-top: 30px !important;
+		height: 1px;
+		background: rgb(163, 163, 163);
+		border: none;
+	}
+
+	&__component {
+		display: flex;
+		align-items: center;
+		font-family: "Inter";
+		font-weight: 600;
+
+		img {
+			margin-left: 10px;
+			margin-right: 8px;
+			// position: relative;
+
+		}
+		// &::after {
+		// 	content: "";
+		// 	width: 20px;
+		// 	height: 20px;
+		// 	background-image: url("/Group.svg");
+		// 	position: absolute;
+		// 	z-index: 100;
+		// 	bottom: 55px;
+		// 	left: 30px;
+		// }
+	}
+
+	&__stat {
+		display: flex;
+
+		label {
+			font-family: "Inter";
+			font-size: 14px;
+			font-weight: 400;
+			color: #AAB2BD;
+			display: flex;
+			justify-content: center;
+		}
+
+		.Founder__comp {
+			width: 64px;
+			height: 56px;
+			border-radius: 12px;
+			background-color: #51B3F6;
+		}
+		.Members__comp {
+			width: 94px;
+			height: 56px;
+			border-radius: 12px;
+			background-color: #009748;
+		}
+		.Project__comp {
+			width: 134px;
+			height: 56px;
+			border-radius: 12px;
+			background-color: #FFA53D;
+		}
+		.Voted__comp {
+			width: 43px;
+			height: 56px;
+			border-radius: 12px;
+			background-color: #DD3634;
+		}
+	}
+
+	li {
+		list-style-type: none ;
+	}
+}
+
+.LeaderBoard {
+	font-family: "Bevan" !important;
+
+	margin-top: 15px;
+
+	background-color: white;
+	border-radius: 24px;
+	width: 100%;
+	height: 405px;
+	box-sizing: border-box;
+	padding: 20px;
+
+
+
+	&__title {
+		color: #0A3161;
+		font-size: 20px;
+		font-weight: 400;
+		margin-bottom: 15px;
+	}
+
+  hr {
+		margin-bottom: 10px !important;
+		margin-top: 8px !important;
+		height: 1px;
+		background: rgb(163, 163, 163);
+		border: none;
+	}
+
+	&__component {
+		display: flex;
+		align-items: center;
+		font-family: "Inter";
+		font-weight: 600;
+
+		img {
+			margin-left: 10px;
+			margin-right: 8px;
+			// position: relative;
+
+		}
+		// &::after {
+		// 	content: "";
+		// 	width: 20px;
+		// 	height: 20px;
+		// 	background-image: url("/Group.svg");
+		// 	position: absolute;
+		// 	z-index: 100;
+		// 	bottom: 55px;
+		// 	left: 30px;
+		// }
+	}
+
+	li {
+		list-style-type: none ;
+	}
+
+	.info {
+		display: flex;
+		
+		span {
+			background-color: #51B3F6;
+			border-radius: 123px;
+			font-size: 12px;
+			color: #F5F7FA;
+			font-weight: 5000;
+			padding: 2px 4px;
+			box-sizing: border-box;
+			width: 60px;
+			height: 18px;
+			margin-left: 10px;
+		}
+	}
+}
+
+.ProjectColor {
+	background-color: #F6C451 !important;
+}
+.MembersColor {
+	background-color: #009748 !important;
+}
+.VoteColor {
+	background-color: #DD3634 !important;
+}
+.DefaultColor {
+	background-color: #009748 !important;
+}
+
+.join {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 5px;
+	height: 100px;
+
+	h3 {
+		font-family: "Inter";
+		font-size: 17px;
+		font-weight: 500;
+		color: white;
+	}
+}
+
+.Vote {
+	margin-top: 15px;
+	width: 100%;
+	height: 206px;
+	border-radius: 24px;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	button {
+		font-family: "Inter";
+		background-color: #51B3F6 !important;
+		width: 335px !important;
+		height: 56px !important;
+		color: white !important;
+		font-size: 17px !important;
+		font-weight: 500 !important;
+		border-radius: 12px;
+		border: none;
+	}
+
+	.time {
+		display: flex;
+		margin-bottom: 20px;
+		align-items: center;
+
+		img {
+			margin-right: 15px;
+		}
+	}
+	h1 {
+		font-family: "Bevan";
+		color: #0A3161;
+		font-size: 25px;
+		font-weight: 400;
+	}
+}
+
+// .avatar {
+// 	width: 32px !important;
+// 	height: 44px !important;
+// 	border-radius: 24px;
+// }
+
+.avatar {
+	width: 44px !important;
+	height: 44px;
+	border-radius: 16px;
+	margin-bottom: 3px;
+	margin-top: 3px;
+}

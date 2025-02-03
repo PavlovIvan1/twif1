@@ -1,0 +1,162 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #009748;
+
+}
+
+.BottomMenu {
+	font-family: "Bevan" !important;
+
+	margin-top: 20px;
+
+	background-color: white;
+	border-radius: 24px 24px 0 0;
+	width: 100%;
+	height: 80px;
+	box-sizing: border-box;
+	padding: 20px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		width: 25px;
+
+		&:not(:first-child) {
+			margin-left: 30px;
+		}
+	}
+}
+
+option {
+	background-color: white !important;
+	border: none !important;
+}
+
+.go3572451881 {
+	width: 100% !important;
+}
+
+.avatar {
+	width: 32px !important;
+	height: 44px !important;
+	border-radius: 24px;
+	margin-bottom: 3px;
+	margin-top: 3px;
+	object-fit: cover;
+}
+
+.blue-background {
+  background-color: #51B3F6;
+	border-radius: 12px;
+}
+
+.inter-font {
+  font-family: 'Inter', sans-serif;
+}
+
+button {
+	transition: transform 0.2s;
+	-webkit-tap-highlight-color: transparent !important; /* Убирает синий эффект выделения на Android */
+}
+
+button:hover {
+	transition: transform 0.2s;
+	transform: scale(1.03);
+}
+
+.loading {
+  background-color: #009748;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 200;
+}
+
+.MuiTypography-root {
+	color: #aab2bd !important;
+	font-family: "Inter" !important;
+	font-size: 14px !important;
+}
+
+.css-1ecfxki {
+	height: 40px !important;
+	width: 30px !important;
+	background-color: #51B3F6 !important;
+	border-radius: 64px !important;
+}
+
+.MuiAutocomplete-tag {
+	border: none !important;
+	width: 95px !important;
+	color: #aab2bd !important;
+	font-weight: 500 !important;
+}
+
+.css-t3gc31 {
+	border-radius: 12px !important;
+}
+
+.MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-65tdxr .MuiAutocomplete-inputRoot {
+	padding-right: 0px !important;
+}
+
+.tramp-spin {
+	animation: loading-spin infinite 10s linear;
+	border-radius: 100%;
+	width: 100px;
+  padding: 0;
+  filter: drop-shadow(0 0 2em yellow);
+}
+
+@keyframes loading-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mobilePlay {
+    background-color: #51B3F6;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        font-family: "Bevan";
+        color: white;
+        letter-spacing: 3px;
+    }
+
+    h3 {
+         font-weight: 600;
+         color: white;
+         font-family: "Inter";
+    }
+}
+
+.Claim {
+	background-color: #51B3F6;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}

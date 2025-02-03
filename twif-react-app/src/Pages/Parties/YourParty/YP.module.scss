@@ -1,0 +1,56 @@
+.YourParty {
+	font-family: "Bevan";
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 50px;
+
+	&__card {
+		transition: transform 0.3s ;
+	}
+
+	&__card:hover {
+		transition: transform 0.3s ;
+		transform: scale(1.03);
+	}
+
+	&__card, &__card__content {
+		font-family: "Inter";
+		padding: 15px;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: white;
+		width: 95%;
+		height: 86px;
+		border-radius: 24px;
+		justify-content: space-between;
+
+		button {
+			font-family: "Inter";
+			background-color: #0A3161;
+			color: white;
+			width: 88px;
+			height: 36px;
+			border-radius: 64px;
+			font-size: 15px;
+			font-weight: 500;
+			border: none;
+			margin-left: 30px;
+		}
+	}
+	&__card {
+		margin-top: 10px;
+	}
+}
+
+.title {
+	font-family: "Bevan";
+	color: white;
+	font-size: 20px;
+	font-weight: 400;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	margin-top: 50px;
+}

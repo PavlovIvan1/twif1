@@ -1,0 +1,84 @@
+.pages_bg {
+	height: 100vh;
+	background-color: #51B3F6;
+
+	.title {
+		width: 100%;
+		background-image: url("/Sky.png");
+		height: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-position: center;
+
+		h1 {
+			font-family: "Bevan";
+			color: white;
+			font-size: 28px;
+			font-weight: 400;
+		}
+	}
+}
+
+.Balance__Content {
+	width: 100%;
+	background-color: white;
+	border-radius: 24px;
+	height: 155px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	img {
+		margin-right: 20px;
+	}
+
+	h2 {
+		font-family: "Bevan";
+		color: #0A3161;
+		font-size: 32px;
+		font-weight: 400;
+	}
+	div:first-child {
+		display: flex;
+
+		img {
+			margin-right: 5px;
+		}
+	}
+}
+
+.buy_stars {
+	margin-top: 20px;
+
+	width: 90%;
+	border: none;
+	font-family: "Inter";
+	font-weight: 500;
+	color: white;
+	font-size: 17px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	height: 56px;
+
+	border-radius: 12px;
+
+	background-color: #FFA53D;
+
+	transition: .2s;
+
+	img {
+		margin-right: 10px;
+	}
+
+	&:hover {
+		transform: scale(1.03);
+		transition: .2s;
+	}
+
+}
+
